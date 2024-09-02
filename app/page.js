@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
-import StatisticsSection from '../components/StatisticsSection';
 import FeaturesSection from '../components/FeaturesSection';
 import OpportunityList from '../components/OpportunityList';
 import TestimonialSection from '../components/TestimonialSection';
@@ -20,7 +19,6 @@ export default function Home() {
       <Header />
       <main className="flex-grow container mx-auto px-4">
         <HeroSection />
-        <StatisticsSection />
         <FeaturesSection />
         <AccompanimentSection />
         <section className="mb-8">

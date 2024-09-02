@@ -25,8 +25,8 @@ const ContactSection = () => {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact</h3>
-              <p>+237 677 889 855 / 620 888 87 87</p>
-              <p>Douala - Cameroun</p>
+              <p>77 779 83 83 / 33 867 80 43</p>
+              <p>karack - amitié 3</p>
               <p>contact@weokomkom.com</p>
             </div>
           </div>

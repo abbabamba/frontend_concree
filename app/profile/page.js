@@ -40,7 +40,6 @@ export default function ProfilePage() {
       setError("Une erreur interne s'est produite. Veuillez réessayer plus tard.");
     }
   };
-  
 
   const handleChange = (e, field, subfield = null) => {
     if (subfield) {
@@ -54,14 +53,13 @@ export default function ProfilePage() {
       setEditedUser({ ...editedUser, [field]: e.target.value });
     }
   };
-  
+
   const handleAddItem = (field) => {
     setEditedUser({
       ...editedUser,
       [field]: [...editedUser[field], { id: Date.now(), name: '' }]
     });
   };
-  
 
   const handleRemoveItem = (field, id) => {
     setEditedUser({
@@ -70,128 +68,202 @@ export default function ProfilePage() {
     });
   };
 
-  if (error) return <div>Erreur : {error}</div>;
-  if (!user) return <div>Chargement...</div>;
+  if (error) return <div className="text-red-500 text-center mt-4">Erreur : {error}</div>;
+  if (!user) return <div className="text-center mt-4">Chargement...</div>;
 
   return (
-    <div>
-      <h1>Profil Utilisateur</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Profil Utilisateur</h1>
       {isEditing ? (
-        <>
+        <div className="space-y-4">
           <div>
-            <label>Nom:</label>
+            <label className="block text-gray-700">Nom:</label>
             <input
               name="name"
               value={editedUser.name}
               onChange={(e) => handleChange(e, 'name')}
+              className="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-600"
             />
           </div>
           <div>
-            <label>Email:</label>
+            <label className="block text-gray-700">Email:</label>
             <input
               name="email"
               value={editedUser.email}
               onChange={(e) => handleChange(e, 'email')}
+              className="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-600"
             />
           </div>
-          <h2>Compétences:</h2>
+
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Compétences:</h2>
           {editedUser.skills.map(skill => (
-            <div key={skill.id}>
+            <div key={skill.id} className="flex items-center space-x-2 mt-2">
               <input
                 name="name"
                 value={skill.name}
                 onChange={(e) => handleChange(e, 'skills', skill.id)}
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
-              <button onClick={() => handleRemoveItem('skills', skill.id)}>Supprimer</button>
+              <button
+                onClick={() => handleRemoveItem('skills', skill.id)}
+                className="text-red-500 hover:text-red-700"
+              >
+                Supprimer
+              </button>
             </div>
           ))}
-          <button onClick={() => handleAddItem('skills')}>Ajouter une compétence</button>
+          <button
+            onClick={() => handleAddItem('skills')}
+            className="mt-3 text-blue-500 hover:text-blue-700"
+          >
+            Ajouter une compétence
+          </button>
 
-          <h2>Expériences professionnelles:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Expériences professionnelles:</h2>
           {editedUser.experiences.map(exp => (
-            <div key={exp.id}>
+            <div key={exp.id} className="space-y-2 mt-2">
               <input
                 name="title"
                 value={exp.title}
                 onChange={(e) => handleChange(e, 'experiences', exp.id)}
                 placeholder="Titre"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <input
                 name="company"
                 value={exp.company}
                 onChange={(e) => handleChange(e, 'experiences', exp.id)}
                 placeholder="Entreprise"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
-              <button onClick={() => handleRemoveItem('experiences', exp.id)}>Supprimer</button>
+              <button
+                onClick={() => handleRemoveItem('experiences', exp.id)}
+                className="text-red-500 hover:text-red-700"
+              >
+                Supprimer
+              </button>
             </div>
           ))}
-          <button onClick={() => handleAddItem('experiences')}>Ajouter une expérience</button>
+          <button
+            onClick={() => handleAddItem('experiences')}
+            className="mt-3 text-blue-500 hover:text-blue-700"
+          >
+            Ajouter une expérience
+          </button>
 
-          <h2>Formations professionnelles:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Formations professionnelles:</h2>
           {editedUser.education.map(edu => (
-            <div key={edu.id}>
+            <div key={edu.id} className="space-y-2 mt-2">
               <input
                 name="degree"
                 value={edu.degree}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
                 placeholder="Diplôme"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <input
                 name="school"
                 value={edu.school}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
                 placeholder="École"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
-              <button onClick={() => handleRemoveItem('education', edu.id)}>Supprimer</button>
+              <button
+                onClick={() => handleRemoveItem('education', edu.id)}
+                className="text-red-500 hover:text-red-700"
+              >
+                Supprimer
+              </button>
             </div>
           ))}
-          <button onClick={() => handleAddItem('education')}>Ajouter une formation</button>
+          <button
+            onClick={() => handleAddItem('education')}
+            className="mt-3 text-blue-500 hover:text-blue-700"
+          >
+            Ajouter une formation
+          </button>
 
-          <h2>Centres d'intérêt:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Centres d'intérêt:</h2>
           {editedUser.interests.map(interest => (
-            <div key={interest.id}>
+            <div key={interest.id} className="flex items-center space-x-2 mt-2">
               <input
                 name="name"
                 value={interest.name}
                 onChange={(e) => handleChange(e, 'interests', interest.id)}
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
-              <button onClick={() => handleRemoveItem('interests', interest.id)}>Supprimer</button>
+              <button
+                onClick={() => handleRemoveItem('interests', interest.id)}
+                className="text-red-500 hover:text-red-700"
+              >
+                Supprimer
+              </button>
             </div>
           ))}
-          <button onClick={() => handleAddItem('interests')}>Ajouter un centre d'intérêt</button>
+          <button
+            onClick={() => handleAddItem('interests')}
+            className="mt-3 text-blue-500 hover:text-blue-700"
+          >
+            Ajouter un centre d'intérêt
+          </button>
 
-          <button onClick={handleSave}>Enregistrer</button>
-        </>
+          <button
+            onClick={handleSave}
+            className="mt-6 w-full py-2 text-white bg-green-500 hover:bg-green-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
+          >
+            Enregistrer
+          </button>
+        </div>
       ) : (
-        <>
-          <p>Nom : {user.name}</p>
-          <p>Email : {user.email}</p>
-          <h2>Compétences:</h2>
-          <ul>
-            {user.skills.map(skill => (
-              <li key={skill.id}>{skill.name}</li>
-            ))}
-          </ul>
-          <h2>Expériences professionnelles:</h2>
-          <ul>
-            {user.experiences.map(exp => (
-              <li key={exp.id}>{exp.title} - {exp.company}</li>
-            ))}
-          </ul>
-          <h2>Formations professionnelles:</h2>
-          <ul>
-            {user.education.map(edu => (
-              <li key={edu.id}>{edu.degree} - {edu.school}</li>
-            ))}
-          </ul>
-          <h2>Centres d'intérêt:</h2>
-          <ul>
-            {user.interests.map(interest => (
-              <li key={interest.id}>{interest.name}</li>
-            ))}
-          </ul>
-          <button onClick={handleEdit}>Modifier</button>
-        </>
+        <div className="space-y-6">
+          <div className="text-xl font-semibold text-gray-700">
+            <p>Nom : {user.name}</p>
+            <p>Email : {user.email}</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800">Compétences:</h2>
+            <ul className="list-disc list-inside text-gray-700">
+              {user.skills.map(skill => (
+                <li key={skill.id}>{skill.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800">Expériences professionnelles:</h2>
+            <ul className="list-disc list-inside text-gray-700">
+              {user.experiences.map(exp => (
+                <li key={exp.id}>{exp.title} chez {exp.company}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800">Formations professionnelles:</h2>
+            <ul className="list-disc list-inside text-gray-700">
+              {user.education.map(edu => (
+                <li key={edu.id}>{edu.degree} à {edu.school}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800">Centres d'intérêt:</h2>
+            <ul className="list-disc list-inside text-gray-700">
+              {user.interests.map(interest => (
+                <li key={interest.id}>{interest.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <button
+            onClick={handleEdit}
+            className="mt-6 w-full py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+          >
+            Modifier le profil
+          </button>
+        </div>
       )}
     </div>
   );

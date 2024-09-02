@@ -4,50 +4,49 @@ import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className="bg-blue-100 p-8 rounded-lg mb-8 shadow-lg">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          La plateforme qui vous aide à développer votre <span className="text-blue-600">entreprise</span>
+    <section className="bg-gradient-to-r from-blue-50 to-blue-100 p-10 rounded-xl mb-10 shadow-xl">
+      <div className="text-center mb-10">
+        <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
+          Développez votre <span className="text-blue-600">entreprise</span> avec nous
         </h1>
-        <p className="text-lg text-gray-600">
-          Découvrez des opportunités, entrez en contact avec des entreprises du Togo, ou inscrivez-vous pour être contacté avec des offres, des ressources et des opportunités.
+        <p className="text-xl text-gray-700 mb-6">
+          Explorez des opportunités, connectez-vous avec des entreprises togolaises, et inscrivez-vous pour découvrir des offres exclusives.
         </p>
+        <div className="flex justify-center space-x-6">
+          <Link href="/register" legacyBehavior>
+            <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition duration-300 shadow-md">
+              Trouvez une opportunité
+            </a>
+          </Link>
+          <Link href="/opportunities" legacyBehavior>
+            <a className="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold px-8 py-4 rounded-full transition duration-300 shadow-md">
+              Découvrir les offres
+            </a>
+          </Link>
+        </div>
       </div>
-      <div className="flex justify-center space-x-4 mb-8">
-        <Link href="/register" legacyBehavior>
-          <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
-            Trouvez une opportunité
-          </a>
-        </Link>
-        <Link href="/opportunities" legacyBehavior>
-          <a className="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold px-6 py-3 rounded-lg transition duration-300">
-            Découvrir les offres
-          </a>
-        </Link>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white p-4 rounded-lg shadow-md flex items-center">
-          <Image src="/45.png" alt="Offers" width={40} height={40} className="mr-4" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
+          <Image src="/45.png" alt="Offers" width={50} height={50} className="mr-4" />
           <div>
-            <p className="text-2xl font-bold text-blue-600">+45</p>
-            <p className="text-sm text-gray-500">Offres d'accompagnement</p>
+            <p className="text-3xl font-bold text-blue-600">+45</p>
+            <p className="text-base text-gray-500">Offres d'accompagnement</p>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md flex items-center">
-          <Image src="/champ.png" alt="Entrepreneurs" width={40} height={40} className="mr-4" />
+        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
+          <Image src="/champ.png" alt="Entrepreneurs" width={50} height={50} className="mr-4" />
           <div>
-            <p className="text-2xl font-bold text-blue-600">+2500</p>
-            <p className="text-sm text-gray-500">Entrepreneurs, startups</p>
+            <p className="text-3xl font-bold text-blue-600">+2500</p>
+            <p className="text-base text-gray-500">Entrepreneurs, startups</p>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md flex items-center">
-          <Image src="/reunion.png" alt="Events" width={40} height={40} className="mr-4" />
+        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
+          <Image src="/reunion.png" alt="Events" width={50} height={50} className="mr-4" />
           <div>
-            <p className="text-2xl font-bold text-blue-600">+1532</p>
-            <p className="text-sm text-gray-500">Entreprises impliquées</p>
+            <p className="text-3xl font-bold text-blue-600">+1532</p>
+            <p className="text-base text-gray-500">Entreprises impliquées</p>
           </div>
         </div>
-        
       </div>
     </section>
   );
