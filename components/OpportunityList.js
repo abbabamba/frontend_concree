@@ -70,7 +70,7 @@ const OpportunityList = () => {
         </div>
       )}
 
-      {isLoading && <p className="text-center text-gray-500">Chargement des opportunités...</p>}
+      {isLoading && <p className="text-center text-gray-500"></p>}
 
       {!isLoading && hasMore && (
         <div className="flex justify-center mt-6">
