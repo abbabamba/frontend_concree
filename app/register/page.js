@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { registerUser } from '../../services/api';
 import { useRouter } from 'next/navigation';
@@ -68,7 +69,7 @@ export default function RegisterPage() {
           endDate: edu.endDate ? new Date(edu.endDate) : null
         }))
       };
-      
+
       const response = await registerUser(userData);
       if (response.message === 'User registered successfully') {
         router.push('/login');
@@ -102,24 +103,24 @@ export default function RegisterPage() {
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600" />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Compétences (séparées par des virgules):</label>
+            <label className="block text-gray-700">Comp&eacute;tences (s&eacute;par&eacute;es par des virgules):</label>
             <input type="text" name="skills" value={formData.skills} onChange={handleChange}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600" />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Intérêts (séparés par des virgules):</label>
+            <label className="block text-gray-700">Int&eacute;r&ecirc;ts (s&eacute;par&eacute;es par des virgules):</label>
             <input type="text" name="interests" value={formData.interests} onChange={handleChange}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600" />
           </div>
-          
-          <h3 className="text-xl font-semibold mt-6 mb-2">Expériences</h3>
+
+          <h3 className="text-xl font-semibold mt-6 mb-2">Exp&eacute;riences</h3>
           {formData.experiences.map((exp, index) => (
             <div key={index} className="mb-4 border-b border-gray-200 pb-4">
               <input type="text" placeholder="Titre" value={exp.title} onChange={(e) => handleArrayChange(e, index, 'title', 'experiences')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
               <input type="text" placeholder="Entreprise" value={exp.company} onChange={(e) => handleArrayChange(e, index, 'company', 'experiences')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-              <input type="date" placeholder="Date de début" value={exp.startDate} onChange={(e) => handleArrayChange(e, index, 'startDate', 'experiences')}
+              <input type="date" placeholder="Date de d&eacute;but" value={exp.startDate} onChange={(e) => handleArrayChange(e, index, 'startDate', 'experiences')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
               <input type="date" placeholder="Date de fin" value={exp.endDate} onChange={(e) => handleArrayChange(e, index, 'endDate', 'experiences')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
@@ -128,18 +129,18 @@ export default function RegisterPage() {
             </div>
           ))}
           <button type="button" onClick={() => handleAddArrayItem('experiences')}
-            className="w-full text-blue-500 hover:text-blue-700 mb-6">Ajouter une expérience</button>
+            className="w-full text-blue-500 hover:text-blue-700 mb-6">Ajouter une exp&eacute;rience</button>
 
-          <h3 className="text-xl font-semibold mb-2">Éducation</h3>
+          <h3 className="text-xl font-semibold mb-2">&Eacute;ducation</h3>
           {formData.education.map((edu, index) => (
             <div key={index} className="mb-4 border-b border-gray-200 pb-4">
-              <input type="text" placeholder="Diplôme" value={edu.degree} onChange={(e) => handleArrayChange(e, index, 'degree', 'education')}
+              <input type="text" placeholder="Dipl&ocirc;me" value={edu.degree} onChange={(e) => handleArrayChange(e, index, 'degree', 'education')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-              <input type="text" placeholder="École" value={edu.school} onChange={(e) => handleArrayChange(e, index, 'school', 'education')}
+              <input type="text" placeholder="&Eacute;cole" value={edu.school} onChange={(e) => handleArrayChange(e, index, 'school', 'education')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
               <input type="text" placeholder="Domaine" value={edu.field} onChange={(e) => handleArrayChange(e, index, 'field', 'education')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-              <input type="date" placeholder="Date de début" value={edu.startDate} onChange={(e) => handleArrayChange(e, index, 'startDate', 'education')}
+              <input type="date" placeholder="Date de d&eacute;but" value={edu.startDate} onChange={(e) => handleArrayChange(e, index, 'startDate', 'education')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
               <input type="date" placeholder="Date de fin" value={edu.endDate} onChange={(e) => handleArrayChange(e, index, 'endDate', 'education')}
                 className="w-full px-4 py-2 mt-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
@@ -148,11 +149,11 @@ export default function RegisterPage() {
             </div>
           ))}
           <button type="button" onClick={() => handleAddArrayItem('education')}
-            className="w-full text-blue-500 hover:text-blue-700 mb-6">Ajouter une éducation</button>
+            className="w-full text-blue-500 hover:text-blue-700 mb-6">Ajouter une &eacute;ducation</button>
 
           <button type="submit"
             className="w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600">
-            S'inscrire
+            S&apos;inscrire
           </button>
         </form>
       </div>

@@ -32,7 +32,7 @@ const OpportunityCard = ({ opportunity }) => {
       <div className="px-4 pb-4">
         <Link href={`/opportunities/${id}`} passHref>
           <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300">
-            Voir l'opportunité
+            Voir l&apos;opportunit&eacute;
           </button>
         </Link>
       </div>

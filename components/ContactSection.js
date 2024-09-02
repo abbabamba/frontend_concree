@@ -17,16 +17,16 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Newsletter</h3>
-              <p className="mb-4">Restez informé des dernières opportunités via nos newsletters.</p>
+              <p className="mb-4">Restez inform&eacute; des derni&egrave;res opportunit&eacute;s via nos newsletters.</p>
               <form className="space-y-4">
                 <input type="email" placeholder="Adresse email" className="w-full p-2 rounded" />
-                <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded">S'abonner à la newsletter</button>
+                <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded">S&apos;abonner &agrave; la newsletter</button>
               </form>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact</h3>
               <p>77 779 83 83 / 33 867 80 43</p>
-              <p>karack - amitié 3</p>
+              <p>karack - amiti&eacute; 3</p>
               <p>contact@weokomkom.com</p>
             </div>
           </div>

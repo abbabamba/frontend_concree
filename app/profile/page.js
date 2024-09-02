@@ -18,10 +18,10 @@ export default function ProfilePage() {
           setUser(userProfile);
           setEditedUser(userProfile);
         } else {
-          setError("Informations utilisateur non trouvées");
+          setError("Informations utilisateur non trouv&eacute;es");
         }
       } catch (error) {
-        setError("Impossible de récupérer le profil");
+        setError("Impossible de r&eacute;cup&eacute;rer le profil");
       }
     };
     fetchUserProfile();
@@ -38,7 +38,7 @@ export default function ProfilePage() {
       setIsEditing(false);
       localStorage.setItem('user', JSON.stringify(updatedUser));
     } catch (error) {
-      setError("Une erreur interne s'est produite. Veuillez réessayer plus tard.");
+      setError("Une erreur interne s&apos;est produite. Veuillez r&eacute;essayer plus tard.");
     }
   };
 
@@ -96,7 +96,7 @@ export default function ProfilePage() {
             />
           </div>
 
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Compétences:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Comp&eacute;tences:</h2>
           {editedUser.skills.map(skill => (
             <div key={skill.id} className="flex items-center space-x-2 mt-2">
               <input
@@ -117,10 +117,10 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('skills')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter une compétence
+            Ajouter une comp&eacute;tence
           </button>
 
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Expériences professionnelles:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Exp&eacute;riences professionnelles:</h2>
           {editedUser.experiences.map(exp => (
             <div key={exp.id} className="space-y-2 mt-2">
               <input
@@ -149,7 +149,7 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('experiences')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter une expérience
+            Ajouter une exp&eacute;rience
           </button>
 
           <h2 className="text-2xl font-semibold text-gray-800 mt-6">Formations professionnelles:</h2>
@@ -159,14 +159,14 @@ export default function ProfilePage() {
                 name="degree"
                 value={edu.degree}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
-                placeholder="Diplôme"
+                placeholder="Dipl&ocirc;me"
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <input
                 name="school"
                 value={edu.school}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
-                placeholder="École"
+                placeholder="&Eacute;cole"
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <button
@@ -184,7 +184,7 @@ export default function ProfilePage() {
             Ajouter une formation
           </button>
 
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Centres d'intérêt:</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Centres d&apos;int&eacute;r&ecirc;t:</h2>
           {editedUser.interests.map(interest => (
             <div key={interest.id} className="flex items-center space-x-2 mt-2">
               <input
@@ -205,7 +205,7 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('interests')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter un centre d'intérêt
+            Ajouter un centre d&apos;int&eacute;r&ecirc;t
           </button>
 
           <button
@@ -223,7 +223,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800">Compétences:</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">Comp&eacute;tences:</h2>
             <ul className="list-disc list-inside text-gray-700">
               {user.skills.map(skill => (
                 <li key={skill.id}>{skill.name}</li>
@@ -232,7 +232,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800">Expériences professionnelles:</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">Exp&eacute;riences professionnelles:</h2>
             <ul className="list-disc list-inside text-gray-700">
               {user.experiences.map(exp => (
                 <li key={exp.id}>{exp.title} chez {exp.company}</li>
@@ -244,13 +244,13 @@ export default function ProfilePage() {
             <h2 className="text-2xl font-semibold text-gray-800">Formations professionnelles:</h2>
             <ul className="list-disc list-inside text-gray-700">
               {user.education.map(edu => (
-                <li key={edu.id}>{edu.degree} à {edu.school}</li>
+                <li key={edu.id}>{edu.degree} &agrave; {edu.school}</li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800">Centres d'intérêt:</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">Centres d&apos;int&eacute;r&ecirc;t:</h2>
             <ul className="list-disc list-inside text-gray-700">
               {user.interests.map(interest => (
                 <li key={interest.id}>{interest.name}</li>
