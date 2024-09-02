@@ -61,7 +61,7 @@ const OpportunityList = () => {
       </div>
 
       {opportunities.length === 0 ? (
-        <p className="text-center text-gray-500">Aucune opportunité disponible pour le moment.</p>
+        <p className="text-center text-gray-500">Salam . Pour visualiser nos offres , connectez vous !</p>
       ) : (
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {opportunities.map((opportunity) => (
