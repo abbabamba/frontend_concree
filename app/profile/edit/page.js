@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getUserProfile, updateUserProfile } from '../../services/api';
+import { getUserProfile, updateUserProfile } from '../../../services/api';
 import { useRouter } from 'next/navigation';
 
 export default function EditProfilePage() {
