@@ -35,7 +35,7 @@ export async function getOpportunityDetails(id) {
 // Inscription utilisateur
 export async function registerUser(userData) {
   try {
-    const res = await fetch('https://backend-concree.onrender.com/users/register', {
+    const res = await fetch('https://backend-concree.onrender.com/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
