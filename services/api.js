@@ -20,13 +20,36 @@ export const getOpportunities = async (filter = {}, sortBy = 'date') => {
 };
 
 export async function getOpportunityDetails(id) {
+  const timeout = 10000; // 10 seconds timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
   try {
-    const res = await fetch(`https://backend-concree.onrender.com/opportunities/${id}`);
+    const res = await fetch(`https://backend-concree.onrender.com/opportunities/${id}`, {
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
     if (!res.ok) {
-      throw new Error('Failed to fetch opportunity details');
+      if (res.status === 404) {
+        throw new Error(`Opportunity with ID ${id} not found`);
+      }
+      throw new Error(`HTTP error! status: ${res.status}`);
     }
-    return await res.json();
+
+    const data = await res.json();
+    
+    if (!data || Object.keys(data).length === 0) {
+      throw new Error('Received empty response');
+    }
+
+    return data;
   } catch (error) {
+    if (error.name === 'AbortError') {
+      console.error(`Request for opportunity ${id} timed out`);
+      throw new Error(`Request timed out after ${timeout/1000} seconds`);
+    }
     console.error('Error fetching opportunity details:', error);
     throw error;
   }

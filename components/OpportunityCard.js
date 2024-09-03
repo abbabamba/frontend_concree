@@ -10,7 +10,7 @@ const OpportunityCard = ({ opportunity }) => {
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <div className="relative h-40">
         <Image
-          src={image || "/offer.png"}
+          src="/offer.png"
           alt={title}
           layout="fill"
           objectFit="cover"
