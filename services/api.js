@@ -58,7 +58,7 @@ export async function loginUser(email, password) {
   console.log('Données envoyées:', { email, password });  // Affiche les données envoyées
 
   try {
-    const res = await fetch('https://backend-concree.onrender.com/users/login', {
+    const res = await fetch('https://backend-concree.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export async function loginUser(email, password) {
 
 export async function getUserProfile(userId) {
   try {
-    const res = await fetch(`https://backend-concree.onrender.com/users/profile/${userId}`, {
+    const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export async function getUserProfile(userId) {
 
 export async function updateUserProfile(userId, updatedData) {
   try {
-    const res = await fetch(`https://backend-concree.onrender.com/users/profile/${userId}`, {
+    const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
