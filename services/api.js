@@ -127,22 +127,48 @@ export async function getUserProfile(userId) {
 }
 
 export async function updateUserProfile(userId, updatedData) {
+  const timeout = 15000; // 15 seconds timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
   try {
-    const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
+    // Vérification des données mises à jour
+    if (!updatedData || Object.keys(updatedData).length === 0) {
+      throw new Error('No data provided for update');
+    }
+
+    const res = await fetch(`https://backend-concree.onrender.com/users/profile/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        // Ajoutez ici d'autres en-têtes si nécessaire, comme un token d'authentification
       },
       body: JSON.stringify(updatedData),
+      signal: controller.signal,
     });
 
+    clearTimeout(timeoutId);
+
     if (!res.ok) {
+      if (res.status === 404) {
+        throw new Error(`User with ID ${userId} not found`);
+      }
       throw new Error(`Failed to update user profile: ${res.statusText}`);
     }
 
     const data = await res.json();
+
+    if (!data || !data.user) {
+      throw new Error('Invalid response from server');
+    }
+
+    console.log('Profile updated successfully');
     return data.user;
   } catch (error) {
+    if (error.name === 'AbortError') {
+      console.error(`Request to update profile for user ${userId} timed out`);
+      throw new Error(`Request timed out after ${timeout/1000} seconds`);
+    }
     console.error('Error updating user profile:', error);
     throw error;
   }
