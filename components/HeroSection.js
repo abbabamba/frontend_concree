@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
@@ -23,21 +24,21 @@ const HeroSection = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <img src="/champ.png" alt="Offers" className="mr-4" />
+            <Image src="/champ.png" alt="Offers" width={100} height={100} className="mr-4" />
             <div>
               <p className="text-3xl font-bold text-green-500">+45</p>
-              <p className="text-gray-600">Offres d'accompagnement</p>
+              <p className="text-gray-600">Offres d&apos;accompagnement</p>
             </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <img src="/reunio2.png" alt="Entrepreneurs" className="mr-4" />
+            <Image src="/reunio2.png" alt="Entrepreneurs" width={100} height={100} className="mr-4" />
             <div>
               <p className="text-3xl font-bold text-green-500">+2500</p>
               <p className="text-gray-600">Entrepreneurs, startups</p>
             </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <img src="/entreprise.png" alt="Companies" className="mr-4" />
+            <Image src="/entreprise.png" alt="Companies" width={100} height={100} className="mr-4" />
             <div>
               <p className="text-3xl font-bold text-green-500">+1532</p>
               <p className="text-gray-600">Entreprises impliquées</p>
