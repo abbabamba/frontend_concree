@@ -38,13 +38,8 @@ export default function OpportunityDetail() {
         {/* Company Image */}
         {opportunity.companyImage && (
           <div className="flex-shrink-0">
-            <Image
-              src="/offre1.png"
-              alt={opportunity.company}
-              width={150}
-              height={150}
-              className="rounded-lg shadow-md"
-            />
+        <Image src="/offre1.png" alt="Offers" width={100} height={100} className="mr-4" />
+
           </div>
         )}
 
