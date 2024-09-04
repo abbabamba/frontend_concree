@@ -136,14 +136,31 @@ export async function updateUserProfile(userId, updatedData) {
       throw new Error('No data provided for update');
     }
 
-    console.log('Sending data:', JSON.stringify(updatedData, null, 2));
+    // Restructure the data to match the expected format on the backend
+    const formattedData = {
+      ...updatedData,
+      skills: updatedData.skills?.map(skill => ({ name: skill })) || undefined,
+      interests: updatedData.interests?.map(interest => ({ name: interest })) || undefined,
+      experiences: updatedData.experiences?.map(exp => ({
+        ...exp,
+        startDate: new Date(exp.startDate).toISOString(),
+        endDate: exp.endDate ? new Date(exp.endDate).toISOString() : null,
+      })) || undefined,
+      education: updatedData.education?.map(edu => ({
+        ...edu,
+        startDate: new Date(edu.startDate).toISOString(),
+        endDate: edu.endDate ? new Date(edu.endDate).toISOString() : null,
+      })) || undefined,
+    };
+
+    console.log('Sending data:', JSON.stringify(formattedData, null, 2));
 
     const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updatedData),
+      body: JSON.stringify(formattedData),
       signal: controller.signal,
     });
 
