@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl font-bold mb-4">Wekomkom</h2>
           <p className="text-sm">
-            Wekomkom est une plateforme digitale dédiée à l'accompagnement et à la valorisation de l'entrepreneuriat en Afrique. Nous connectons les entrepreneurs à des investisseurs et des ressources pour les aider à propulser leurs entreprises vers le succès.
+            Wekomkom est une plateforme digitale dédiée à l&apos;accompagnement et à la valorisation de l&apos;entrepreneuriat en Afrique. Nous connectons les entrepreneurs à des investisseurs et des ressources pour les aider à propulser leurs entreprises vers le succès.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Liens utiles</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/terms" className="hover:underline">Conditions générales d'utilisation</Link>
+              <Link href="/terms" className="hover:underline">Conditions générales d&apos;utilisation</Link>
             </li>
             <li>
               <Link href="/privacy" className="hover:underline">Politique de confidentialité</Link>

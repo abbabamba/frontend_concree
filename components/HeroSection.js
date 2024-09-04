@@ -30,7 +30,7 @@ const HeroSection = () => {
             <Image src="/champ.png" alt="Offers" width={100} height={100} className="mr-4" />
             <div>
               <p className="text-3xl font-bold text-green-500">+45</p>
-              <p className="text-gray-600">Offres d'accompagnement</p>
+              <p className="text-gray-600">Offres d&apos;accompagnement</p>
             </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
