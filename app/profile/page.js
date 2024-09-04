@@ -307,7 +307,7 @@ export default function ProfilePage() {
             </ul>
           </div>
           <button
-            onClick={handleEdit}
+           
             className="mt-6 w-full py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           >
             Modifier le profil
