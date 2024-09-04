@@ -1,7 +1,6 @@
 import React from 'react';
+import Link from 'next/link';  // Import the Link component
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-
 
 const OpportunityCard = ({ opportunity }) => {
   const { id, title, date, location, description } = opportunity;
@@ -26,10 +25,11 @@ const OpportunityCard = ({ opportunity }) => {
           <span>{location}</span>
         </div>
         <p className="text-sm text-gray-700 line-clamp-3 mb-4">{description}</p>
-        <Link href={`/opportunities/${id}`} passHref legacyBehavior>
-          <a className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300 text-center">
+        <Link href={`/opportunities/${id}`}> {/* Wrap the button with Link */}
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
             Voir l&apos;opportunité
-          </a>
+            <ArrowRight size={18} className="ml-2" />
+          </button>
         </Link>
       </div>
     </div>
@@ -37,4 +37,3 @@ const OpportunityCard = ({ opportunity }) => {
 };
 
 export default React.memo(OpportunityCard);
-

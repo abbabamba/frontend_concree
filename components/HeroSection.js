@@ -1,8 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';  // Import the Link component
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-
 
 const HeroSection = () => {
   return (
@@ -16,11 +15,12 @@ const HeroSection = () => {
           votre croissance et connectez-vous avec des mentors, des investisseurs et des entreprises partenaires.
         </p>
         <div className="flex justify-center space-x-4 mb-12">
-        <Link href={`/opportunities/${id}`} passHref legacyBehavior>
-          <a className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300 text-center">
-           Trouver une opportunité
-          </a>
-        </Link>
+          <Link href="/opportunities">  {/* Wrap the button with Link */}
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 flex items-center">
+              Trouver une opportunité
+              <ArrowRight className="ml-2" size={20} />
+            </button>
+          </Link>
           <button className="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold px-6 py-3 rounded-lg transition duration-300">
             Découvrir les offres
           </button>
