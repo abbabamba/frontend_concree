@@ -4,47 +4,48 @@ import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-r from-blue-50 to-blue-100 p-10 rounded-xl mb-10 shadow-xl">
-      <div className="text-center mb-10">
-        <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
-          D&eacute;veloppez votre <span className="text-blue-600">entreprise</span> avec nous
+    <section className="bg-white py-16">
+      <div className="container mx-auto px-6 text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">
+          La plateforme qui vous aide à développer votre <span className="text-green-500">entreprise</span>
         </h1>
-        <p className="text-xl text-gray-700 mb-6">
-          Explorez des opportunit&eacute;s, connectez-vous avec des entreprises togolaises, et inscrivez-vous pour d&eacute;couvrir des offres exclusives.
+        <p className="text-lg text-gray-600 mb-8">
+          Bienvenue sur Wassidjan, votre catalyseur de succès entrepreneurial. Trouvez les meilleures opportunités pour
+          votre croissance et connectez-vous avec des mentors, des investisseurs et des entreprises partenaires.
         </p>
-        <div className="flex justify-center space-x-6">
-          <Link href="/register" legacyBehavior>
-            <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition duration-300 shadow-md">
-              Trouvez une opportunit&eacute;
+        <div className="flex justify-center space-x-4 mb-12">
+          <Link href="/opportunities">
+            <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+              Trouver une opportunité
             </a>
           </Link>
-          <Link href="/opportunities" legacyBehavior>
-            <a className="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold px-8 py-4 rounded-full transition duration-300 shadow-md">
-              D&eacute;couvrir les offres
+          <Link href="/register">
+            <a className="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold px-6 py-3 rounded-lg transition duration-300">
+              Découvrir les offres
             </a>
           </Link>
         </div>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
-          <Image src="/45.png" alt="Offers" width={50} height={50} className="mr-4" />
-          <div>
-            <p className="text-3xl font-bold text-blue-600">+45</p>
-            <p className="text-base text-gray-500">Offres d&apos;accompagnement</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <Image src="/champ.png" alt="Offers" width={100} height={100} className="mr-4" />
+            <div>
+              <p className="text-3xl font-bold text-green-500">+45</p>
+              <p className="text-gray-600">Offres d'accompagnement</p>
+            </div>
           </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
-          <Image src="/champ.png" alt="Entrepreneurs" width={50} height={50} className="mr-4" />
-          <div>
-            <p className="text-3xl font-bold text-blue-600">+2500</p>
-            <p className="text-base text-gray-500">Entrepreneurs, startups</p>
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <Image src="/reunio2.png" alt="Entrepreneurs" width={100} height={100} className="mr-4" />
+            <div>
+              <p className="text-3xl font-bold text-green-500">+2500</p>
+              <p className="text-gray-600">Entrepreneurs, startups</p>
+            </div>
           </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
-          <Image src="/reunion.png" alt="Events" width={50} height={50} className="mr-4" />
-          <div>
-            <p className="text-3xl font-bold text-blue-600">+1532</p>
-            <p className="text-base text-gray-500">Entreprises impliqu&eacute;es</p>
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <Image src="/entreprise.png" alt="Companies" width={100} height={100} className="mr-4" />
+            <div>
+              <p className="text-3xl font-bold text-green-500">+1532</p>
+              <p className="text-gray-600">Entreprises impliquées</p>
+            </div>
           </div>
         </div>
       </div>
