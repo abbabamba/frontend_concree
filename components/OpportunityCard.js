@@ -8,7 +8,7 @@ const OpportunityCard = ({ opportunity }) => {
     <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       <div className="relative h-48 w-full">
         <img
-          src="/api/placeholder/400/200"
+          src="/offre1.png"
           alt={title}
           className="w-full h-full object-cover"
         />
@@ -24,13 +24,15 @@ const OpportunityCard = ({ opportunity }) => {
           <span>{location}</span>
         </div>
         <p className="text-sm text-gray-700 line-clamp-3 mb-4">{description}</p>
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-          Voir l&apos;opportunité
-          <ArrowRight size={18} className="ml-2" />
-        </button>
+        <Link href={`/opportunities/${id}`} passHref legacyBehavior>
+          <a className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300 text-center">
+            Voir l&apos;opportunité
+          </a>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default React.memo(OpportunityCard);
+
