@@ -28,7 +28,7 @@ const TestimonialSection = () => {
             <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <Image
-                  src='/45.png'
+                  src='/educonnect.png'
                   alt={testimonial.name}
                   width={64}
                   height={64}

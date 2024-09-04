@@ -21,9 +21,11 @@ const HeroSection = () => {
               <ArrowRight className="ml-2" size={20} />
             </button>
           </Link>
+          <Link href="/register">
           <button className="bg-white hover:bg-gray-100 text-blue-600 border-2 border-blue-600 font-semibold px-8 py-4 rounded-full transition duration-300 shadow-md hover:shadow-lg">
             Découvrir les offres
           </button>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
