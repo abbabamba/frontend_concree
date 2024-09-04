@@ -8,9 +8,14 @@ const OpportunityCard = ({ opportunity }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <div className="relative h-40">
-      <Image src="/offer.png" alt="Offers" width={50} height={50} className="mr-4" />
-
+      <div className="relative h-40 w-full">
+        <Image 
+          src={image || "/offer.png"} 
+          alt={title || "Opportunity"} 
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">{title}</h3>
@@ -25,10 +30,10 @@ const OpportunityCard = ({ opportunity }) => {
         <p className="text-sm text-gray-600 line-clamp-2">{description}</p>
       </div>
       <div className="px-4 pb-4">
-        <Link href={`/opportunities/${id}`} passHref>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300">
-            Voir l&apos;opportunit&eacute;
-          </button>
+        <Link href={`/opportunities/${id}`} passHref legacyBehavior>
+          <a className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-300 text-center">
+            Voir l&apos;opportunité
+          </a>
         </Link>
       </div>
     </div>

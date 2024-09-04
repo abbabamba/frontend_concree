@@ -40,18 +40,43 @@ export default function ProfilePage() {
     setError(null);
     try {
       if (!validateUserData(editedUser)) {
-        throw new Error('Donn&eacute;es invalides. Veuillez v&eacute;rifier tous les champs.');
+        throw new Error('Données invalides. Veuillez vérifier tous les champs.');
       }
-      const updatedUser = await updateUserProfile(user.id, editedUser);
+  
+      const updatePayload = {
+        name: editedUser.name,
+        email: editedUser.email,
+        password: editedUser.password, // si vous mettez à jour le mot de passe
+        skills: editedUser.skills.map(skill => ({ name: skill.name })),
+        experiences: editedUser.experiences.map(exp => ({
+          title: exp.title,
+          company: exp.company,
+          startDate: exp.startDate,
+          endDate: exp.endDate,
+        })),
+        education: editedUser.education.map(edu => ({
+          degree: edu.degree,
+          school: edu.school,
+          field: edu.field,
+          startDate: edu.startDate,
+          endDate: edu.endDate,
+        })),
+        interests: editedUser.interests.map(interest => ({
+          name: interest.name,
+        })),
+      };
+  
+      const updatedUser = await updateUserProfile(user.id, updatePayload);
       setUser(updatedUser);
       setIsEditing(false);
       localStorage.setItem('user', JSON.stringify(updatedUser));
     } catch (error) {
-      setError('Erreur lors de la mise &agrave; jour du profil : ' + error.message);
+      setError('Erreur lors de la mise à jour du profil : ' + error.message);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   const validateUserData = (data) => {
     if (!data.name || !data.email) return false;
