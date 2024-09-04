@@ -82,11 +82,11 @@ export default function OpportunityDetail() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Opportunity Information */}
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Informations sur l'opportunité</h3>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">Informations sur l&apos;opportunité</h3>
           <ul className="text-gray-600 space-y-2">
             <li><strong>Secteur(s):</strong> {opportunity.sectors}</li>
             <li><strong>Ciblé(s):</strong> {opportunity.targetAudience}</li>
-            <li><strong>Type d'opportunité:</strong> {opportunity.opportunityType}</li>
+            <li><strong>Type d&apos;opportunité:</strong> {opportunity.opportunityType}</li>
           </ul>
         </div>
 
