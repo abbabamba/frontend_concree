@@ -137,7 +137,7 @@ export async function updateUserProfile(userId, updatedData) {
       throw new Error('No data provided for update');
     }
 
-    const res = await fetch(`https://backend-concree.onrender.com/users/profile/${userId}`, {
+    const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
