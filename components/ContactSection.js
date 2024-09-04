@@ -62,7 +62,7 @@ const ContactSection = () => {
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center"
                 >
                   <Mail size={20} className="mr-2" />
-                  S'abonner à la newsletter
+                  S&apos;abonner à la newsletter
                 </button>
               </form>
             </div>

@@ -29,8 +29,20 @@ export default function OpportunityDetail() {
     }
   }, [id]);
 
-  if (isLoading) return <div className="flex justify-center items-center h-screen"><div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div></div>;
-  if (error) return <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"><strong className="font-bold">Erreur!</strong><span className="block sm:inline"> {error}</span></div>;
+  if (isLoading) 
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+
+  if (error) 
+    return (
+      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong className="font-bold">Erreur!</strong>
+        <span className="block sm:inline"> {error}</span>
+      </div>
+    );
 
   return (
     <div className="max-w-5xl mx-auto p-8 bg-white rounded-xl shadow-lg">
@@ -67,18 +79,18 @@ export default function OpportunityDetail() {
 
       {/* Opportunity Details */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Description de l'opportunité</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Description de l&apos;opportunité</h2>
         <p className="text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-lg shadow-inner">{opportunity.description}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         {/* Opportunity Information */}
         <div className="bg-blue-50 p-6 rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold text-blue-800 mb-4">Informations sur l'opportunité</h3>
+          <h3 className="text-xl font-semibold text-blue-800 mb-4">Informations sur l&apos;opportunité</h3>
           <ul className="space-y-3">
             <InfoItem icon={Briefcase} label="Secteur(s)" value={opportunity.sectors} />
             <InfoItem icon={Users} label="Ciblé(s)" value={opportunity.targetAudience} />
-            <InfoItem icon={CheckCircle} label="Type d'opportunité" value={opportunity.opportunityType} />
+            <InfoItem icon={CheckCircle} label="Type d&apos;opportunité" value={opportunity.opportunityType} />
           </ul>
         </div>
 

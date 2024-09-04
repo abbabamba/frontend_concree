@@ -7,7 +7,7 @@ const FeaturesSection = () => {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-          Lancez votre entreprise et bénéficiez d'un écosystème de qualité
+          Lancez votre entreprise et bénéficiez d&apos;un écosystème de qualité
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -28,7 +28,7 @@ const FeaturesSection = () => {
             </h3>
             <ul className="space-y-4">
               {[
-                "Identifier des offres d'accompagnement",
+                "Identifier des offres d&apos;accompagnement",
                 "Accéder à des formations gratuites",
                 "Mettre en avant vos réalisations",
                 "Trouver des investisseurs et des partenaires",
