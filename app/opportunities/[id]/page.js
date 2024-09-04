@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getOpportunityDetails, applyForOpportunity } from '../../../services/api';
+import { Calendar, MapPin, Clock, Briefcase, Users, CheckCircle } from 'lucide-react';
 
 export default function OpportunityDetail() {
   const pathname = usePathname();
@@ -28,72 +29,77 @@ export default function OpportunityDetail() {
     }
   }, [id]);
 
-  if (isLoading) return <p className="text-center text-gray-500">Chargement...</p>;
-  if (error) return <p className="text-center text-red-500">{error}</p>;
+  if (isLoading) return <div className="flex justify-center items-center h-screen"><div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div></div>;
+  if (error) return <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"><strong className="font-bold">Erreur!</strong><span className="block sm:inline"> {error}</span></div>;
 
   return (
-    <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-md">
+    <div className="max-w-5xl mx-auto p-8 bg-white rounded-xl shadow-lg">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        {/* Company Image */}
-        {opportunity.companyImage && (
-          <div className="flex-shrink-0">
-        <Image src="/offre1.png" alt="Offers" width={100} height={100} className="mr-4" />
-
-          </div>
-        )}
-
-        {/* Opportunity Title and Company Info */}
-        <div className="flex-grow mt-6 md:mt-0 md:ml-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">{opportunity.title}</h1>
-          <p className="text-gray-600 mb-4">Par {opportunity.company}</p>
-          <div className="text-sm text-gray-500 space-y-1">
-            <p><strong>Lieu:</strong> {opportunity.location}</p>
-            <p><strong>Durée:</strong> {opportunity.duration}</p>
-            <p><strong>Date limite:</strong> {new Date(opportunity.dateLimit).toLocaleDateString()}</p>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-12 border-b pb-8">
+        <div className="flex items-center mb-6 md:mb-0">
+          {opportunity.companyImage && (
+            <div className="flex-shrink-0 mr-6">
+              <Image src="/offre1.png" alt="Company Logo" width={120} height={120} className="rounded-lg shadow-md" />
+            </div>
+          )}
+          <div>
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">{opportunity.title}</h1>
+            <p className="text-xl text-blue-600 font-semibold mb-2">{opportunity.company}</p>
+            <div className="flex items-center text-gray-600 space-x-4">
+              <div className="flex items-center"><MapPin size={18} className="mr-1" /> {opportunity.location}</div>
+              <div className="flex items-center"><Clock size={18} className="mr-1" /> {opportunity.duration}</div>
+              <div className="flex items-center"><Calendar size={18} className="mr-1" /> {new Date(opportunity.dateLimit).toLocaleDateString()}</div>
+            </div>
           </div>
         </div>
-
-        {/* Apply and Share Buttons */}
-        <div className="flex flex-col items-center mt-6 md:mt-0 md:ml-auto">
+        <div className="flex flex-col space-y-3 w-full md:w-auto">
           <button
             onClick={() => applyForOpportunity(opportunity.id)}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md shadow-lg transition duration-300 mb-3"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1"
           >
             Postuler
           </button>
-          <button className="w-full bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-semibold py-3 px-6 rounded-md transition duration-300">
+          <button className="bg-white hover:bg-gray-100 text-blue-600 border-2 border-blue-600 font-semibold py-3 px-8 rounded-lg transition duration-300">
             Partager
           </button>
         </div>
       </div>
 
       {/* Opportunity Details */}
-      <div className="bg-gray-50 p-6 rounded-lg shadow-inner mb-8">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Description</h2>
-        <p className="text-gray-700 leading-relaxed">{opportunity.description}</p>
+      <div className="mb-12">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Description de l'opportunité</h2>
+        <p className="text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-lg shadow-inner">{opportunity.description}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         {/* Opportunity Information */}
-        <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Informations sur l&apos;opportunité</h3>
-          <ul className="text-gray-600 space-y-2">
-            <li><strong>Secteur(s):</strong> {opportunity.sectors}</li>
-            <li><strong>Ciblé(s):</strong> {opportunity.targetAudience}</li>
-            <li><strong>Type d&apos;opportunité:</strong> {opportunity.opportunityType}</li>
+        <div className="bg-blue-50 p-6 rounded-lg shadow-sm">
+          <h3 className="text-xl font-semibold text-blue-800 mb-4">Informations sur l'opportunité</h3>
+          <ul className="space-y-3">
+            <InfoItem icon={Briefcase} label="Secteur(s)" value={opportunity.sectors} />
+            <InfoItem icon={Users} label="Ciblé(s)" value={opportunity.targetAudience} />
+            <InfoItem icon={CheckCircle} label="Type d'opportunité" value={opportunity.opportunityType} />
           </ul>
         </div>
 
         {/* Additional Details */}
-        <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Détails supplémentaires</h3>
-          <ul className="text-gray-600 space-y-2">
-            <li><strong>Avantages:</strong> {opportunity.advantages}</li>
-            <li><strong>Processus de sélection:</strong> {opportunity.selectionProcess}</li>
+        <div className="bg-green-50 p-6 rounded-lg shadow-sm">
+          <h3 className="text-xl font-semibold text-green-800 mb-4">Détails supplémentaires</h3>
+          <ul className="space-y-3">
+            <InfoItem icon={CheckCircle} label="Avantages" value={opportunity.advantages} />
+            <InfoItem icon={Users} label="Processus de sélection" value={opportunity.selectionProcess} />
           </ul>
         </div>
       </div>
     </div>
   );
 }
+
+const InfoItem = ({ icon: Icon, label, value }) => (
+  <li className="flex items-start">
+    <Icon size={20} className="mr-3 text-gray-600 mt-1" />
+    <div>
+      <span className="font-semibold text-gray-700">{label}:</span> <span className="text-gray-600">{value}</span>
+    </div>
+  </li>
+);
