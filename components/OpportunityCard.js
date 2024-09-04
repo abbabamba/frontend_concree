@@ -9,13 +9,8 @@ const OpportunityCard = ({ opportunity }) => {
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <div className="relative h-40">
-        <Image
-          src="/offer.png"
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-lg"
-        />
+      <Image src="/offer.png" alt="Offers" width={50} height={50} className="mr-4" />
+
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">{title}</h3>

@@ -20,10 +20,10 @@ export default function ProfilePage() {
           setUser(userProfile);
           setEditedUser(userProfile);
         } else {
-          setError("Informations utilisateur non trouvées");
+          setError('Informations utilisateur non trouv&eacute;es');
         }
       } catch (error) {
-        setError("Impossible de récupérer le profil: " + error.message);
+        setError('Impossible de r&eacute;cup&eacute;rer le profil: ' + error.message);
       } finally {
         setIsLoading(false);
       }
@@ -40,14 +40,14 @@ export default function ProfilePage() {
     setError(null);
     try {
       if (!validateUserData(editedUser)) {
-        throw new Error("Données invalides. Veuillez vérifier tous les champs.");
+        throw new Error('Donn&eacute;es invalides. Veuillez v&eacute;rifier tous les champs.');
       }
       const updatedUser = await updateUserProfile(user.id, editedUser);
       setUser(updatedUser);
       setIsEditing(false);
       localStorage.setItem('user', JSON.stringify(updatedUser));
     } catch (error) {
-      setError("Erreur lors de la mise à jour du profil : " + error.message);
+      setError('Erreur lors de la mise &agrave; jour du profil : ' + error.message);
     } finally {
       setIsLoading(false);
     }
@@ -88,7 +88,7 @@ export default function ProfilePage() {
 
   if (isLoading) return <div className="text-center mt-4">Chargement...</div>;
   if (error) return <div className="text-red-500 text-center mt-4">Erreur : {error}</div>;
-  if (!user) return <div className="text-center mt-4">Aucun utilisateur trouvé</div>;
+  if (!user) return <div className="text-center mt-4">Aucun utilisateur trouv&eacute;</div>;
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
@@ -115,8 +115,8 @@ export default function ProfilePage() {
               className="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-600"
             />
           </div>
-          {/* Section pour compétences */}
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Compétences:</h2>
+          {/* Section pour comp&eacute;tences */}
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Comp&eacute;tences:</h2>
           {editedUser.skills.map(skill => (
             <div key={skill.id} className="flex items-center space-x-2 mt-2">
               <input
@@ -137,11 +137,11 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('skills')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter une compétence
+            Ajouter une comp&eacute;tence
           </button>
 
-          {/* Section pour expériences professionnelles */}
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Expériences professionnelles:</h2>
+          {/* Section pour exp&eacute;riences professionnelles */}
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Exp&eacute;riences professionnelles:</h2>
           {editedUser.experiences.map(exp => (
             <div key={exp.id} className="space-y-2 mt-2">
               <input
@@ -170,7 +170,7 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('experiences')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter une expérience
+            Ajouter une exp&eacute;rience
           </button>
 
           {/* Section pour formations professionnelles */}
@@ -181,14 +181,14 @@ export default function ProfilePage() {
                 name="degree"
                 value={edu.degree}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
-                placeholder="Diplôme"
+                placeholder="Dipl&ocirc;me"
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <input
                 name="school"
                 value={edu.school}
                 onChange={(e) => handleChange(e, 'education', edu.id)}
-                placeholder="École"
+                placeholder="&Eacute;cole"
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-600"
               />
               <button
@@ -206,8 +206,8 @@ export default function ProfilePage() {
             Ajouter une formation
           </button>
 
-          {/* Section pour centres d'intérêt */}
-          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Centres d'intérêt:</h2>
+          {/* Section pour centres d&apos;int&eacute;r&ecirc;t */}
+          <h2 className="text-2xl font-semibold text-gray-800 mt-6">Centres d&apos;int&eacute;r&ecirc;t:</h2>
           {editedUser.interests.map(interest => (
             <div key={interest.id} className="flex items-center space-x-2 mt-2">
               <input
@@ -228,7 +228,7 @@ export default function ProfilePage() {
             onClick={() => handleAddItem('interests')}
             className="mt-3 text-blue-500 hover:text-blue-700"
           >
-            Ajouter un centre d'intérêt
+            Ajouter un centre d&apos;int&eacute;r&ecirc;t
           </button>
 
           <button
@@ -250,7 +250,7 @@ export default function ProfilePage() {
             <p>{user.email}</p>
           </div>
           <div className="text-gray-700 mb-6">
-            <h2 className="text-2xl font-semibold">Compétences:</h2>
+            <h2 className="text-2xl font-semibold">Comp&eacute;tences:</h2>
             <ul className="list-disc pl-5">
               {user.skills.map(skill => (
                 <li key={skill.id}>{skill.name}</li>
@@ -258,7 +258,7 @@ export default function ProfilePage() {
             </ul>
           </div>
           <div className="text-gray-700 mb-6">
-            <h2 className="text-2xl font-semibold">Expériences professionnelles:</h2>
+            <h2 className="text-2xl font-semibold">Exp&eacute;riences professionnelles:</h2>
             <ul className="list-disc pl-5">
               {user.experiences.map(exp => (
                 <li key={exp.id}>{exp.title} chez {exp.company}</li>
@@ -269,12 +269,12 @@ export default function ProfilePage() {
             <h2 className="text-2xl font-semibold">Formations professionnelles:</h2>
             <ul className="list-disc pl-5">
               {user.education.map(edu => (
-                <li key={edu.id}>{edu.degree} à {edu.school}</li>
+                <li key={edu.id}>{edu.degree} &agrave; {edu.school}</li>
               ))}
             </ul>
           </div>
           <div className="text-gray-700 mb-6">
-            <h2 className="text-2xl font-semibold">Centres d'intérêt:</h2>
+            <h2 className="text-2xl font-semibold">Centres d&apos;int&eacute;r&ecirc;t:</h2>
             <ul className="list-disc pl-5">
               {user.interests.map(interest => (
                 <li key={interest.id}>{interest.name}</li>
