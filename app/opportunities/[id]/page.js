@@ -39,7 +39,7 @@ export default function OpportunityDetail() {
         {opportunity.companyImage && (
           <div className="flex-shrink-0">
             <Image
-              src="/offer.png"
+              src="/offre1.png"
               alt={opportunity.company}
               width={150}
               height={150}

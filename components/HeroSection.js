@@ -10,7 +10,7 @@ const HeroSection = () => {
           La plateforme qui vous aide à développer votre <span className="text-green-500">entreprise</span>
         </h1>
         <p className="text-lg text-gray-600 mb-8">
-          Bienvenue sur Wassidjan, votre catalyseur de succès entrepreneurial. Trouvez les meilleures opportunités pour
+          Bienvenue sur Wekomkom, votre catalyseur de succès entrepreneurial. Trouvez les meilleures opportunités pour
           votre croissance et connectez-vous avec des mentors, des investisseurs et des entreprises partenaires.
         </p>
         <div className="flex justify-center space-x-4 mb-12">
