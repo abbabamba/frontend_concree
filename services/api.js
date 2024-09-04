@@ -132,16 +132,16 @@ export async function updateUserProfile(userId, updatedData) {
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
   try {
-    // Vérification des données mises à jour
     if (!updatedData || Object.keys(updatedData).length === 0) {
       throw new Error('No data provided for update');
     }
+
+    console.log('Sending data:', JSON.stringify(updatedData, null, 2));
 
     const res = await fetch(`https://backend-concree.onrender.com/profile/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        // Ajoutez ici d'autres en-têtes si nécessaire, comme un token d'authentification
       },
       body: JSON.stringify(updatedData),
       signal: controller.signal,
@@ -150,10 +150,9 @@ export async function updateUserProfile(userId, updatedData) {
     clearTimeout(timeoutId);
 
     if (!res.ok) {
-      if (res.status === 404) {
-        throw new Error(`User with ID ${userId} not found`);
-      }
-      throw new Error(`Failed to update user profile: ${res.statusText}`);
+      const errorText = await res.text();
+      console.error('Server response:', errorText);
+      throw new Error(`Failed to update user profile: ${res.statusText}\nServer response: ${errorText}`);
     }
 
     const data = await res.json();
