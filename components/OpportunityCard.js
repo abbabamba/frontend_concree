@@ -25,7 +25,7 @@ const OpportunityCard = ({ opportunity }) => {
         </div>
         <p className="text-sm text-gray-700 line-clamp-3 mb-4">{description}</p>
         <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-          Voir l'opportunité
+          Voir l&apos;opportunité
           <ArrowRight size={18} className="ml-2" />
         </button>
       </div>
