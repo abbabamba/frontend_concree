@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+
 
 const OpportunityCard = ({ opportunity }) => {
   const { id, title, date, location, description } = opportunity;
